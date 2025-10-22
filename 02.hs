@@ -77,6 +77,9 @@ neshto Tura = 6
 -- - infixr 0 $ (draw AST of an operator-heavy expression)
 -- - (.)
 
+applyTwice :: (a -> a) -> a -> a
+applyTwice f x = f (f x)
+
 ($) :: (a -> b) -> a -> b
 f $ a = f a
 infixr 0 $
@@ -132,7 +135,7 @@ const a b = a
 -- 45
 
 compose :: (b -> c) -> (a -> b) -> a -> c
-compose = undefined
+compose f g x = f (g x)
 
 -- Play around with the syntax (how many parenthesis can you stuff in here?)
 (.) :: (b -> c) -> (a -> b) -> a -> c
