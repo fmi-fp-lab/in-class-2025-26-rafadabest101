@@ -209,7 +209,7 @@ on = undefined
 -- 1372
 
 until :: (a -> Bool) -> (a -> a) -> a -> a
-until = undefined
+until bool func a = if bool then until bool a (func a) else a
 
 -- TASK:
 -- Apply two different functions to the two different arguments of a tuple
